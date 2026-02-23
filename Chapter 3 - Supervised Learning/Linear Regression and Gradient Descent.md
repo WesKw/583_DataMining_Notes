@@ -1,0 +1,50 @@
+- Linear regression has closed form solution that can be done incrementally
+- Supervised learning: 2 main types
+	- Classification: discrete predictive/output variable
+	- Regression: continuous predictive/output variable
+- Linear regression finds the predictive function $h$
+	- ex: Given a house size, predict a house
+	- $n$: Number of training examples
+	- $x$: input variable / feature
+	- $y$: output variable / target 
+	- $(x,y)$: One training example
+	- $(x^i, y^i)$: $i^{th}$ training example
+	- Kinda just line of best fit given a data point
+- Model Representation
+	- Univariate linear regression - only one input variable $x$
+	- Model : $y=h_\theta (x) = \theta_0 + \theta_1 x$
+		- $\theta$ is the parameter vector
+		- $\theta_{0,1}$ is a parameter
+	- Loss function - training set used to learn a model by optimizing a cost function 
+	- (in SVM we optimize the margin)
+- Loss Function
+	- Select $\theta_0$, $\theta_1$ so that $h_\theta(x)$  is close to $y$ for the training example $(x,y)$
+	- $L(\theta) = L(\theta_0, \theta_1)=1/2n \sum_{i=1}^{n}(h_\theta(x^i) - y^i)^2$ 
+	- goal is to minimize $L(\theta_0, \theta_1)$
+- Learning is done through gradient descent
+	- gradient descent 
+		- 1) start with some initial $\theta_0, \theta_1$
+		- 2) Change $\theta_0, \theta_1$ repeatedly until we find a minimum
+		- Learning rule: $\theta_1 := \theta_1 - \alpha\frac{\delta}{\delta\theta_1}L(\theta_0, \theta_1)$
+			- We repeat until convergence
+	- Learning rate is important - too small and we converge too slowly, too large and we never converge
+		- __Partial derivative on midterm just make sure you know how to calculate it fuckface__
+- Batch gradient descent
+	- Good for convex functions
+	- Passing over all data at once is one epoch
+- Stoachastic gradient descent
+	- SGD each step uses a single training example
+	- before each epoch, shuffle data
+	- converges faster when dataset is large
+	- SGD with minibatch - random m out of n examples
+- Convex and non-convex function
+	- Convex function - has one minimum
+	- non-convex - has local minima (valleys) that are not a global minimum
+- Multivariate linear regression
+	- In general a problem can have $k$ input variables
+	- model: $y=h_\theta(x)=\theta_0 + \theta_1x_1 + ... \theta_kx_k = \theta^Tx$
+	- We use matrix notation for convenience
+		- x and $\theta$ vectors for $0, 1, 2, ..., k$
+	- We repeat the until convergence for all $\theta_j$ for all $j \text{ in } 0,1,2,...,k$
+- 
+	- 

@@ -1,0 +1,43 @@
+-  History
+	- Developed in 1993 by Agrawa et Al
+	- Used by database and datamining community, sees no use in ML
+	- Used for Market Basket Analysis - how items purchased by customers are related
+- Basics
+	- Assumes all data is *__categorical
+	- $I = \{i_1, i_2, ..., i_n\}$ itemset, set of all items in an item space / system
+	- $t \subseteq I$, $t$ is a __transaction__ and is a set of items and is a subset of $I$
+	- $T$ is the transaction database where $T= \{t_1, t_2, ..., t_m\}$
+	- Rules
+		- $t$ contains $X$ - a set of items in $I$, if $X\subseteq t$
+		- Association rule 
+			- an implication of the form $X\implies Y$
+			- where $X,Y\subset I$ and $X\cap Y = \emptyset$ 
+	- __itemset__ - a set of items that is a subset of $I$
+	- __k-itemset__ - a set of items with $k$ elements
+	- __Support__ - A rule holds with support $S$ in $T$ if $S$% of the transactions in $T$ contain $X\cup Y$
+		- Over all of the transactions in $T$, how many of them contain the union of $X$ and $Y$?
+		- $\text{support}=\frac{(X\cup Y).count}{\text{\# of transactions in T}}$
+	- __Confidence__ - Rule holds with confidence $C$ in $T$ if $C$% of the transactions in $T$ that contain $X$ also contain $Y$
+		- Over all of the transactions in $T$ that contain $X$, how many of them also contain $Y$?
+		- $\text{confidence}=\frac{(X\cup Y).count}{X.count}$
+	- Association rule states that when $X$ occurs, then $Y$ occurs with a certain probability
+	- __Support Count__: X.count -> the number of transactions in $T$ that contain X.
+	- What is the goal of association rule mining?
+		- Find all rules that satisfy a __user-specified minimum support__ and __minimum confidence__
+		- + Completeness
+		- + No Fixed target items on one side
+		- + Mining w/ data on hard disk (more or less obsolete now)
+- Apriori Algorithm
+	- Given min confidence, min support, and a transaction data set, mined rules are unique
+	- 2 step process
+		- 1) Find all itemsets that meet the minimum support (__frequent itemsets__)
+		- 2) Use frequent itemsets to generate rules
+	- Standard Apriori has downward closure property - given a frequent itemset, any of its subsets must also be a frequent itemset
+	- Does level wise search by scanning data and finding 1-frequent itemsets, then 2, then 3, then... k
+	- Candidates $C_k$ are itemsets that could be frequent given itemset $F_{k-1}$
+	- $F_{k}$ are itemsets that are actually frequent, and we know $F_k \subseteq C_k$
+	- Items are always sorted in a total order
+	- 1) Initial pass to find $F_1$
+	- 2) Check which itemsets in $F_1$ meet the minimum support
+	- 3) Generate candidates for each $k\in(2, 3, 4, ...)$
+	- 

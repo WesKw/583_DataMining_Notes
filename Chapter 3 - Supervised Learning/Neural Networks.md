@@ -1,0 +1,31 @@
+- Origin: algorithms that try to mimic the brain
+- Works well for computer vision and natural language processing
+- Model of a neuron
+	- oh god stuff
+- Logistic regression
+	- We have inputs, learn weights for each input, sum them up
+	- We are trying to compress the sum into a __probability__
+- Artificial neuron: logistic unit
+	- $\sigma(w^Tx)$ - activation function
+	- activation does not have to be a *sigmoid*
+	- Neural net is a composition of many logistics units organized in layers
+- Major difference of neural nets
+	- Other ML models directly use input features to build models
+		- Direct input to direct output
+	- Neural nets can learn higher level features that consider interactions of the input features
+		- input can be represented in many other ways
+- More layers for neural nets give more layers of abstraction
+	- We let the model figure out the right layers of abstraction
+	- Think about face recognition
+		- Lines, parts, regions
+- Multiple classes
+	- With multiple classes in a classification problem, we'll need multiple output units and one output unit per class
+- Ex Recognizing hand-written digits
+	- How do we recognize handwritten digits?
+	- Want to build a neural net to recognize 10 digits, 0-9
+	- Multilayer perceptron (MLP)
+		- one input layer
+		- 2 hidden layers
+			- 2 is arbitrary
+			- each has 16 neurons
+			- 
