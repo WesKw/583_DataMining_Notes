@@ -6,7 +6,7 @@
 	- Assumes all data is *__categorical
 	- $I = \{i_1, i_2, ..., i_n\}$ itemset, set of all items in an item space / system
 	- $t \subseteq I$, $t$ is a __transaction__ and is a set of items and is a subset of $I$
-	- $T$ is the transaction database where $T= \{t_1, t_2, ..., t_m\}$
+	- $T$ is the transactional dataset where $T= \{t_1, t_2, ..., t_m\}$
 	- Rules
 		- $t$ contains $X$ - a set of items in $I$, if $X\subseteq t$
 		- Association rule 
@@ -40,4 +40,81 @@
 	- 1) Initial pass to find $F_1$
 	- 2) Check which itemsets in $F_1$ meet the minimum support
 	- 3) Generate candidates for each $k\in(2, 3, 4, ...)$
-	- 
+	- Candidate Generation 
+		- takes a frequent items $F_{k-1}$ and returns a superset $C_k$ of all frequent $k$-itemsets
+		- join step: Generate $C_k$ of length $k$
+			- Join step joins two itemsets that have the same set of items except for the last one
+			- ensure sorted order for the last 2 itemsets
+		- prune step: Remove items form $C_k$ that cannot be frequent
+			- for every itemset candidate, check if each k-1 subset is in $F_{k-1}$
+			- if its not then delete from the candidates set
+	- Generating frequent itemsets
+		- For each frequent itemset X, and proper nonempty subset A of X,
+			- B = X - A.
+			- A -> B is an association rule if
+				- Confidence(A -> B) $\ge$ minimum confidence
+				- Supprt(A -> B) = support (A $\cup$ B) = support(X)
+				- confidence(A -> B) = support(A $\cup$ B) / support(A)
+		- All data necessary for generating rules is done through frequent itemset generation
+	- Sounds like an expensive algorithm buuut....
+		- Rules can be found in linear time under certain conditions
+		- K is bounded in practice
+		- K passes over data
+		- scales fairly well
+		- Space of all association rules is exponential; O($2^m$)
+		- Exploits sparseness of data, high min support and min conf values
+		- can produce a large number of rules
+- Data mining formats
+	- We can use transactional or tabular data
+	- tabular data must be converted to transaction form for association mining
+- Multiple min supports
+	- a single minimum support assumes all items have the same nature
+		- We know this is not true
+	- Rare-item problem
+		- minimum support too high -> rare item rules will not be found
+		- too low -> Combinatorial explosion
+	- Assign each item a minimum item support MIS(i)
+	- A rule satisfies its min support if the support of the rule is greater than the smallest minimum support of every item in the rule
+	- We also add a __support difference constraint__ to prevent rules involving rare items and very frequent items
+		- SDC = $max_{i\in s}\{sup(i)\}-min_{j \in s}\{sup(j)\} \le \Phi$
+	- We have to be careful now because downward closure no longer holds w/ multiple minimum supports
+		- fix this by sorting all items according to their minimum item support value
+	- Rule generation
+		- for each subset in the frequent itemset split into antecedent and consequent, then determine the support and confidence using the formulas, it's a rule if it meets the minimum confidence
+		  
+- MS Apriori
+	- similar to apriori but we need multiple minimum supports and sdc
+	- 1) sort items by MIS value
+	- 2) initial pass over the data to generate level 1 frequent itemsets
+	- 3) Until the next frequent itemset is the empty setm generate candidates (level 2 or level k), for each candidate record support counts and tail counts, then check if the candidate is frequent enough to be included in $F_k$
+	- Level 2 candidate generation
+		- enumerate over candidates from initial pass, check the candidate support, and for each item in the candidate list after the current item, check if the SDC is met and if so add it to the candidate list
+	- Level K candidate generation
+		- similar to level 2 but use the last set of frequent items
+		- join step involves looking at pairs of candidates where the last item in the set is different
+	- Rule generation
+		- Requires us to use tail counts in addition to counts
+			- Head item problem - if the consequent of a rule contains the lowest MIS value in an itemset, then certain rules may not show up due to the antecedent not being frequent itemsets
+			- Therefore we need to use the tail count to determine supports and confidence 
+			  
+- Class Association Rule Mining (CAR)
+	- Used if the user is interested in fixed targets
+	- CAR includes a set of class labels / targets $Y$ with $I$ as the set of all items, and $I \cap Y = \emptyset$
+	- class association rule: implication of the form $X \to y, X \subseteq I, y\in Y$
+	- Same support and confidence definitions
+	- CARs can be mined in 1 step, using ruleitems w/ support above the min support.
+		- ruleitem: (condset, y)
+		- condset: set of items from I
+	- each ruleitem represents a rule condset $\to y$
+	- We can also use multiple minimum supports for classes
+	- modify apriori algorithm for CAR mining
+	  
+- Sequential Mining
+	- Considers the order of transactions
+	- commonly used in web mining
+	- Sequence is an ordered list of itemsets
+	- Size - number of itemsets in the sequence
+	- Length - number of items in the sequence
+	- Super & subsequence checks for elements in each sequence
+	- Existing algorithm similar to apriori
+	- To generate candidates, we join subsequences with themselves 
