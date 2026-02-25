@@ -1,25 +1,37 @@
+# 02/23/2026
 - Origin: algorithms that try to mimic the brain
 - Works well for computer vision and natural language processing
 - Model of a neuron
 	- oh god stuff
+	- Inputs $a_1, ..., a_i$ come from the output of node $i$ to this node $j$
+	- input links have weight $w_{i,j}$
+	- additional fixed input $a_0$(bias) with weight $w_{0,j}$
+	- Basically logistic regression
+
 - Logistic regression
 	- We have inputs, learn weights for each input, sum them up
 	- We are trying to compress the sum into a __probability__
+
 - Artificial neuron: logistic unit
 	- $\sigma(w^Tx)$ - activation function
 	- activation does not have to be a *sigmoid*
 	- Neural net is a composition of many logistics units organized in layers
+
 - Major difference of neural nets
 	- Other ML models directly use input features to build models
 		- Direct input to direct output
 	- Neural nets can learn higher level features that consider interactions of the input features
 		- input can be represented in many other ways
+		  
 - More layers for neural nets give more layers of abstraction
 	- We let the model figure out the right layers of abstraction
 	- Think about face recognition
 		- Lines, parts, regions
+
 - Multiple classes
 	- With multiple classes in a classification problem, we'll need multiple output units and one output unit per class
+
+# 02/25/2026
 - Ex Recognizing hand-written digits
 	- How do we recognize handwritten digits?
 	- Want to build a neural net to recognize 10 digits, 0-9
@@ -28,4 +40,88 @@
 		- 2 hidden layers
 			- 2 is arbitrary
 			- each has 16 neurons
-			- 
+		- 1 output layer w/ 10 units for 10 digits
+		- All units fully connected
+		- ![[Pasted image 20260225094300.png]]
+		- We're learning $w$ and $b$
+	- 784 neuros form the first layer, value in each tells how likely the input image matches an output
+	- Idea of layers
+		- Each layer may capture different levels of features, ex: gray scale value, low level features like edges, and high level features likes loops, strokes, and lines
+		- Final layer tells which combination of the subcomponents correspond to each digit
+	- Zoom into 1 neuron
+		- How does it pick up a small pattern?
+		- we compute $w_1a_1 + w_2a_2 + ... + w_na_n + b$ where $w$ is the weight and $a$ is the activation value
+		- We can use the squash function sigmoid $\sigma$
+	- How many parameters?
+		- Each neuron in one layer is connected with every neuron in the next
+		- We have # of params / weights: 784x16 + 16x16 + 16x10
+		- Number of biases: 16 + 16 + 10
+		- total # of params: 13002
+		- Learning: find suitable values for all these parameters to solve the problem at hand
+	- Learning
+		- Use a lot of training examples
+			- handwritten digits with correct labels
+		- We need __backpropagation__ to adjust 13,002 weights and biases to improve performance on training data
+	- Training is an optimization problem (recall)
+		- find a minima for a cost function $C(x)$
+	- Start with random initialization
+		- We use cost function to measure the difference
+	- Square loss (cost) function
+		- take the squared difference of what the system gives and what is correct
+	- Costs will be small if the classification is correct
+	- Cost average over all training data
+		- Average cost gives an idea of how good the network is in classification
+		- Training algo changes all weights and biases to get a better cost
+	- [[Backpropagation]]
+		- We use [[gradient descent]] by putting all weights and biases in a single vector, and all negative gradients of them into another vector 
+		- Nudge or change weights and biases to reduce costs
+		- we see what weights should increase, decrease, and what change means a lot
+		- introduced in the 1970s
+		- Steps:
+			- 1) Initialize the weights and biases
+				- Weights initialized to [-1, 1]
+				- Each unit has a bias
+				- each bias initialized [-1, 1]
+			- 2) Feed the training sample
+			- 3) Propagate inputs forward, compute net input and output of each layer
+			- 4) Compute the loss/error
+			- 5) Backpropagate the error
+			- 6) Update weights and biases to reflect propagated errors
+			- 7) termination conditions
+		- Intuition
+			- If we know which activation should go up and which should go down, we can nudge the activation number for a specific test case and reduce all of the others, and back propagate
+			- We can't change activations, but only the weights and biases of previous layers, which affect the activations
+		- Gradients tell us which weight or bias should be nudged up or down
+		- The idea of backpropagation
+			- We sum up all of the effects for each neuron to get what should happen to the previous layer, and we can recursively apply this to all layers
+		- The problem:
+			- It takes wayyyyy too long to go over every single piece of training data & all computations to calculate each change
+			- So, we use [[stochastic gradient descent]], shuffling the data and dividing them into batches and work on each batch 
+		- Math of backpropagation
+			- Start with a simple case: one neuron in each layer
+			- Focusing on the last 2 layers
+			- Model the 2 layers
+		- ![[Pasted image 20260225101634.png]]
+		- z is the linear sum
+		- This is gonna be on the midterm fuckler
+		- $L$ is the layer
+		- When doing backpropagation we are recursively moving back up a tree
+		- We backpropagate through $\alpha$
+		- What do we update?
+			- The weights, and bias
+			- We cannot update the activation value directly!
+		- Each term is a numerical value w/ a number line
+		- We get sensitivity by taking partial derivatives and using chain rule
+		- Compute all derivatives
+		  ![[Pasted image 20260225102148.png]]
+		- To consider all training examples, we compute the average of all gradients
+		- We also need to take the derivative of the bias
+		  ![[Pasted image 20260225102451.png]]
+		- Then we can take the derivative of the activation (propagating back)
+			- Why do we need to do this? We cannot update $\alpha$ 
+				- We need to propagate backwards to go to the next layer!
+		- For the general case,
+			- everything is basically the same but we just need more indices![[Pasted image 20260225103025.png]]
+	- ![[Pasted image 20260225103423.png]]
+	- Note that $2(a_j^{(L)}-y_i)$ is the simplest layer, the starting layer
+	- 

@@ -21,8 +21,8 @@
 	- Select $\theta_0$, $\theta_1$ so that $h_\theta(x)$  is close to $y$ for the training example $(x,y)$
 	- $L(\theta) = L(\theta_0, \theta_1)=1/2n \sum_{i=1}^{n}(h_\theta(x^i) - y^i)^2$ 
 	- goal is to minimize $L(\theta_0, \theta_1)$
-- Learning is done through gradient descent
-	- gradient descent 
+- Learning is done through [[gradient descent]]
+	- [[gradient descent ]]
 		- 1) start with some initial $\theta_0, \theta_1$
 		- 2) Change $\theta_0, \theta_1$ repeatedly until we find a minimum
 		- Learning rule: $\theta_1 := \theta_1 - \alpha\frac{\delta}{\delta\theta_1}L(\theta_0, \theta_1)$
@@ -32,7 +32,7 @@
 - Batch gradient descent
 	- Good for convex functions
 	- Passing over all data at once is one epoch
-- Stoachastic gradient descent
+- [[stochastic gradient descent]]
 	- SGD each step uses a single training example
 	- before each epoch, shuffle data
 	- converges faster when dataset is large
