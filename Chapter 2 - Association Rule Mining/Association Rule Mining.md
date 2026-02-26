@@ -51,9 +51,9 @@
 	- Generating frequent itemsets
 		- For each frequent itemset X, and proper nonempty subset A of X,
 			- B = X - A.
-			- A -> B is an association rule if
+			- A -> B is an [[association rule]] if
 				- Confidence(A -> B) $\ge$ minimum confidence
-				- Supprt(A -> B) = support (A $\cup$ B) = support(X)
+				- Support(A -> B) = support (A $\cup$ B) = support(X)
 				- confidence(A -> B) = support(A $\cup$ B) / support(A)
 		- All data necessary for generating rules is done through frequent itemset generation
 	- Sounds like an expensive algorithm buuut....
