@@ -1,0 +1,14 @@
+- Key to clustering! Also called similarity
+- Many different distance functions for different applications
+- Common distances are [[Euclidean distance]] and [[Manhattan distance]]
+	- Special cases of [[Minkowski distance]]
+- denoted as $dist(x_i, x_j)$ , $x_i, x_j$ are 2 data points
+- Euclidean distance
+- Manhattan distance
+- Squared distance
+- Chebyshev distance
+- ## Distance functions for binary and nominal attributes
+	- [[Binary attribute]]: 2 values or states but no ordering relationships
+		- ex: gender
+	- We can use a [[confusion matrix]] to introduce the distance functions / measures
+- 
