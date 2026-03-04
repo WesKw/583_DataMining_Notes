@@ -1,0 +1,33 @@
+- We have different attributes with different ranges or values
+- Distance will be biased towards the larger values
+- We could solve this by weighting attributes....
+- but normally we try to [[standardize]] it, by making them the same range
+- All attributes should have an equal impact
+- ## [[Z-Score]]
+	- Transforms the attribute values so that they have a mean of zero and mean absolute deviation of 1
+	- Commonly used in statistics
+	- Standard deviation we assume a gaussian distribution
+	- Z-Score math goes here:
+- ## Interval Scaled Attributes
+	- Values are real numbers following scale
+	- Intervals keep same importance 
+- ## Ratio-scaled attributes
+	- Numeric attrs, but scales are exponential
+	- We tend to do a log transform $log(x_{if})$
+	- Then treat as interval scaled attribute
+	- Happens in physics and biology
+- ## Nominal Attributes
+	- Transform nominal to numeric attrs
+	- Transform nominal to binary
+	- Number of values in a nominal attribute is $v$
+	- Create $v$ binary attributes to represent them
+	- We basically create multiple attributes
+	- Ex: Fruit: {Apple, Pear, Banana}
+		- We create new boolean attributes for each
+		- Apple: false/true -> 0/1
+		- pear: false/true -> 0/1
+		- banana: false/true -> 0/1
+		- Then we can treat these as numerical attributes
+- ## Ordinal Attributes
+	- Nominal values but with a numerical ordering (rank)
+	- treat as interval-scaled attribute

@@ -1,0 +1,37 @@
+- Difficult problem in practice
+- We do not know the **ground truth**
+- Methods:
+	- User inspection
+		- Centroids, spreads
+		- Rules from a decision tree
+		- Text docs:
+			- Read some docs in each cluster
+			- inspect most frequent words in each cluster
+	- We need an objective evaluation
+- ## Ground truth
+	- Use some labeled data for classification as ground truth
+	- Assumption: Each class is a cluster
+	- Construct a confusion matrix after clustering
+	- Compute measures (entropy, purity, precision, recall, f-score)
+	- Let $D$ have classes $C$
+	- ### Entropy
+		- Evaluate the clusters using [[information gain]] & entropy
+		- Use entropy formula where $Pr_i(c_j)$ is the proportion of class $c_j$ data points in cluster $i$ or $D_i$, total entropy of the whole clustering is
+		- $\text{entropy}(D) = -\sum_{j=1}^{|C|}{Pr(c_j)log_2Pr(c_j)}$
+		- $$entropy_{total}(D) = \sum_{i=1}^{k}{\frac{|D_i|}{|D|}*entropy(D_i)}$$
+	- ### Purity
+		- Measure the extent that a cluster only contains one class of data$$\begin{matrix}purity(D_i)=max_{j}{(Pr_i(c_j))}\\purity_{total}(D) = \sum_{i=1}^{k}{\frac{|D_i|}{|D|}*purity(D_i)}\end{matrix}$$
+		- We tend to use both measures (purity and entropy)
+	- Hard to do this in practice (our own applications), we don't have clusters!
+	- Clustering can't be done in practice if we do not understand the data.
+	- ### Remarks
+		- asd
+- ## Evaluation based on internal information
+	- [[Intra-cluster cohesion]] (compactness)
+	- [[Inter-cluster separation]] (isolation)
+- ## Indirect evaluation
+	- Sometimes we use clustering to help perform another primary task
+		- Use the performance on the primary task to compare clustering methods
+	- Ex: book purchase recommendations
+		- If we cluster books according to features, we might be able to provide better recommendations
+		- How well our clustering algorithm works based on how many people buy the recommended books in the clusters

@@ -1,0 +1,20 @@
+- In hierarchical clustering, we can do [[agglomerative]] or [[divisive]] clustering
+- ## Holes in data space
+	- Clustering algos only group data
+	- Clusters represent one aspect of knowledge in the data
+	- [[holes]] are an aspect we have not studied
+		- Region in the data space that contains no or few data points
+			- Maybe insufficient data
+			- Maybe certain attribute-value combinations are not possible or infrequent
+	- Statisticians have 2 ways of dealing with this
+		- [[Bump Hunting]]
+- Goal: given a data space
+- ## Supervised learning for Unsupervised learning
+	- Decision tree algorithms are not directly applicable
+- Ex: 
+	- What if we add uniformly distributed data points to our space? 
+		- Then we might be able to run a decision tree....................
+			- **This won't work**
+			- We cannot add data points uniformly in our data space
+			- We have way too many dimensions (number of points grows exponentially)
+		- 
