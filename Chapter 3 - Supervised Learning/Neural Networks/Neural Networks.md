@@ -1,21 +1,23 @@
-# 02/23/2026
+## 02/23/2026
 - Origin: algorithms that try to mimic the brain
 - Works well for computer vision and natural language processing
 - Model of a neuron
+  ![[Pasted image 20260303145019.png]]
 	- oh god stuff
 	- Inputs $a_1, ..., a_i$ come from the output of node $i$ to this node $j$
 	- input links have weight $w_{i,j}$
 	- additional fixed input $a_0$(bias) with weight $w_{0,j}$
 	- Basically logistic regression
 
-- Logistic regression
+- [[Logistic regression]]
 	- We have inputs, learn weights for each input, sum them up
 	- We are trying to compress the sum into a __probability__
+	- We have a sigmoid (logistic) function
 
 - Artificial neuron: logistic unit
 	- $\sigma(w^Tx)$ - activation function
 	- activation does not have to be a *sigmoid*
-	- Neural net is a composition of many logistics units organized in layers
+	- Neural net is a composition of many logistics units organized in layers![[Pasted image 20260303162507.png]]
 
 - Major difference of neural nets
 	- Other ML models directly use input features to build models
@@ -30,6 +32,9 @@
 
 - Multiple classes
 	- With multiple classes in a classification problem, we'll need multiple output units and one output unit per class
+- We assume that the activation function is always a sigmoid / logistic function
+	- this is not always the case anymore
+	- Other activation functions: [[Tanh]] (hyperbolic tangent) and [[ReLu]] (rectified linear unit)
 
 # 02/25/2026
 - Ex Recognizing hand-written digits
@@ -51,7 +56,7 @@
 	- Zoom into 1 neuron
 		- How does it pick up a small pattern?
 		- we compute $w_1a_1 + w_2a_2 + ... + w_na_n + b$ where $w$ is the weight and $a$ is the activation value
-		- We can use the squash function sigmoid $\sigma$
+		- We can use the squash function sigmoid $\sigma$ to get values between 0 and 1
 	- How many parameters?
 		- Each neuron in one layer is connected with every neuron in the next
 		- We have # of params / weights: 784x16 + 16x16 + 16x10
@@ -63,7 +68,7 @@
 			- handwritten digits with correct labels
 		- We need __backpropagation__ to adjust 13,002 weights and biases to improve performance on training data
 	- Training is an optimization problem (recall)
-		- find a minima for a cost function $C(x)$
+		- find a minima for a [[cost function]] $C(x)$
 	- Start with random initialization
 		- We use cost function to measure the difference
 	- Square loss (cost) function

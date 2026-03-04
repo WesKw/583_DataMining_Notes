@@ -1,0 +1,66 @@
+- Linear regression has closed form solution that can be done incrementally
+- Supervised learning: 2 main types
+	- [[Classification]]: discrete predictive/output variable
+	- [[Regression]]: continuous predictive/output variable
+- Linear regression finds the predictive function $h$ (linear function)
+	- ex: Given a house size, predict the price of the house
+	- $n$: Number of training examples
+	- $x$: input variable / feature
+	- $y$: output variable / target 
+	- $(x,y)$: One training example
+	- $(x^i, y^i)$: $i^{th}$ training example
+	- Kinda just line of best fit given a data point
+- Model Representation
+	- Univariate linear regression - only one input variable $x$
+	- Model : $y=h_\theta (x) = \theta_0 + \theta_1 x$
+		- $\theta$ is the parameter vector
+		- $\theta_{0,1}$ are parameters
+	- [[Loss function]](L) - training set used to learn a model by optimizing a cost function 
+	- (in SVM we optimize the margin)
+- Loss Function
+	- Select $\theta_0$, $\theta_1$ so that $h_\theta(x)$  is close to $y$ for the training example $(x,y)$
+	- $L(\theta) = L(\theta_0, \theta_1)=\frac{1}{2n} \sum_{i=1}^{n}(h_\theta(x^i) - y^i)^2$ 
+	- where $h_\theta(x^i) = \theta_0 + \theta_1x^i$
+	- learning goal is to minimize $L(\theta_0, \theta_1)$
+- Learning is done through [[gradient descent]]
+	- [[gradient descent ]]
+		- 1) start with some initial $\theta_0, \theta_1$
+		- 2) Change $\theta_0, \theta_1$ repeatedly until we find a minimum
+		- Learning rule: $\theta_1 := \theta_1 - \alpha\frac{\delta}{\delta\theta_1}L(\theta_0, \theta_1)$
+			- We repeat until convergence
+	- Learning rate is important - too small and we converge too slowly, too 
+	- Learning rule:![[Pasted image 20260303140353.png]]
+	- large and we never converge
+		- __Partial derivative on midterm just make sure you know how to calculate it fuckface__
+	- For arbitrary $\theta_j$![[Pasted image 20260303140556.png]]
+		- Where $\alpha$ is the learning rate / step size
+		- and $\frac{\partial}{\partial\theta_j}L(\theta_0,\theta_1)$ are the rate of change
+	- **Must be careful - we need to update both $\theta_{0,1}$ simultaneously using temporary variables**
+- Computing the partial derivative![[Pasted image 20260303141026.png]]
+- [[Batch gradient descent]]
+	- Each step/update of gradient descent uses all ($n$) training examples
+		- Sum over all $n$ training examples for each step
+		- **Slow + Memory demanding**
+	- Good for convex loss functions
+	- Training process that covers all training examples once -> *epoch*
+	- Each step is an epoch in batch version
+- [[stochastic gradient descent]]
+	- SGD each step uses a single training example
+	- before each epoch, shuffle data
+	- converges faster when dataset is large -> more parameter updates 
+	- Loss fluctuates w/ each step (1 example per epoch)
+	- SGD with minibatch - random m out of n examples
+		- Efficient, more stable, more likely to jump out of a local minimum
+- Convex and non-convex functions
+	- [[convex]] - has one minimum
+	- [[non-convex]] - has local minima (valleys) that are not a global minimum
+- Multivariate linear regression
+	- generalization of univariate linear regression to $k$ input variables
+	- In general a problem can have $k$ input variables
+	- model: $y=h_\theta(x)=\theta_0 + \theta_1x_1 + ... \theta_kx_k = \theta^Tx$
+	- We use matrix notation for convenience
+		- x and $\theta$ vectors for $0, 1, 2, ..., k$
+	- We repeat the until convergence for all $\theta_j$ for all $j \text{ in } 0,1,2,...,k$
+	  ![[Pasted image 20260303143653.png]]![[Pasted image 20260303143619.png]]
+		- Difference between univariate and multivariate
+		- We have to update every single $\theta$ parameter
