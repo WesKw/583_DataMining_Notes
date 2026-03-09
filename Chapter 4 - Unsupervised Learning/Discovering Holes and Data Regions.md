@@ -17,4 +17,14 @@
 			- **This won't work**
 			- We cannot add data points uniformly in our data space
 			- We have way too many dimensions (number of points grows exponentially)
-		- 
+	- Can we do this without adding $N$ points
+		- YES!
+		- We can't add $N$ points because it increases the size of the data and runtime
+		- We cannot have truly uniformly distributed points in higher dimensions
+		- We can build the tree using [[information theory]] / entropy
+		- We can create cuts in the tree, it's a complicated algorithm because it might cut through points...
+- Summary
+	- Clustering has been around for a long time
+	- Many many clustering algorithms
+	- Hard to evaluate
+	- Clustering is highly application dependent & extensively subjective

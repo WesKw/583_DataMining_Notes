@@ -27,7 +27,9 @@
 		- + Completeness
 		- + No Fixed target items on one side
 		- + Mining w/ data on hard disk (more or less obsolete now)
-- Apriori Algorithm
+	- [[Downward Closure]] property
+		- If an itemset is considered frequent, then all of its subsets must be considered frequent as well
+- [[Apriori]] Algorithm
 	- Given min confidence, min support, and a transaction data set, mined rules are unique
 	- 2 step process
 		- 1) Find all itemsets that meet the minimum support (__frequent itemsets__)
@@ -75,14 +77,14 @@
 		- too low -> Combinatorial explosion
 	- Assign each item a minimum item support MIS(i)
 	- A rule satisfies its min support if the support of the rule is greater than the smallest minimum support of every item in the rule
-	- We also add a __support difference constraint__ to prevent rules involving rare items and very frequent items
+	- We also add a __[[support difference constraint]]__ to prevent rules involving rare items and very frequent items
 		- SDC = $max_{i\in s}\{sup(i)\}-min_{j \in s}\{sup(j)\} \le \Phi$
 	- We have to be careful now because downward closure no longer holds w/ multiple minimum supports
 		- fix this by sorting all items according to their minimum item support value
 	- Rule generation
 		- for each subset in the frequent itemset split into antecedent and consequent, then determine the support and confidence using the formulas, it's a rule if it meets the minimum confidence
 		  
-- MS Apriori
+- [[MS Apriori]]
 	- similar to apriori but we need multiple minimum supports and sdc
 	- 1) sort items by MIS value
 	- 2) initial pass over the data to generate level 1 frequent itemsets
@@ -93,11 +95,11 @@
 		- similar to level 2 but use the last set of frequent items
 		- join step involves looking at pairs of candidates where the last item in the set is different
 	- Rule generation
-		- Requires us to use tail counts in addition to counts
+		- Requires us to use [[tail counts]] in addition to counts
 			- Head item problem - if the consequent of a rule contains the lowest MIS value in an itemset, then certain rules may not show up due to the antecedent not being frequent itemsets
-			- Therefore we need to use the tail count to determine supports and confidence 
+			- Therefore we need to use the [[tail count]] to determine supports and confidence 
 			  
-- Class Association Rule Mining (CAR)
+- [[Class Association Rule Mining]] (CAR)
 	- Used if the user is interested in fixed targets
 	- CAR includes a set of class labels / targets $Y$ with $I$ as the set of all items, and $I \cap Y = \emptyset$
 	- class association rule: implication of the form $X \to y, X \subseteq I, y\in Y$
@@ -109,7 +111,7 @@
 	- We can also use multiple minimum supports for classes
 	- modify apriori algorithm for CAR mining
 	  
-- Sequential Mining
+- [[Sequential Mining]]
 	- Considers the order of transactions
 	- commonly used in web mining
 	- Sequence is an ordered list of itemsets
