@@ -1,0 +1,53 @@
+- Text mining refers to data mining using text documents as data
+- Most text mining tasks use [[Information Retrieval]] (IR) methods to pre-process text docs.
+- Web search ahs its roots in IR.
+- Methods are different from traditional data-pre-processing methods used for relational tables
+- There didn't used to be serious challenges to this, but with the advent of AI there are now very difficult challenges for information retrieval and web search.
+- ## [[Information Retrieval]]
+	- The study of finding needed information
+	- Find information to match a user's information needs
+	- Expressed as queries
+	- finding documents relevant to user queries
+	- Studies acquisition, organization, storage, retrieval, and distribution of information
+	  ![[Pasted image 20260318101722.png]]
+	- ### IR Queries
+		- Keyword queries
+		- Boolean queries
+			- this is generally unused in the modern day
+		- Phrase queries
+		- Proximity queries
+		- Full document queries
+		- Natural languages questions
+	- ## Information retrieval models
+		- IR models fovern how a document and query are represented, and how the relevance of a document to a user query is defined
+		- Main models:
+			- Boolean model
+			- Vector space model
+			- statistical language model
+	- ## Document representation
+		- We treat documents as a bag of words or terms. We do not consider sequence
+		- $V$ is the set of distinctive words / terms in a collection of documents $D$ - called the vocabulary
+		- A weight associated with each term $t_i$ of a document $d_j \in D$, if the term does not appear in the document, $w_{ij}=0$.
+	- ## Boolean model
+		- Weight $w_{ij}$ is either 0 or 1.
+		- Query terms are combined logically using boolean operations AND, OR, NOT
+		- This one's pretty bad, word/term frequency is not considered
+		- Called an exact match
+	- ## Vector Space Model
+		- Each document is also treated as a bag of words and represented as a vector
+		- but, the weights are computed based on variations of the TF or TF-IDF scheme
+		- [[Term Frequency Scheme]] (TF): The weight of a term $t_i$ in document $d_j$ is the number of times $t_i$ appear in $d_j$, denoted by $f_{ij}. May apply normalization
+		- [[Term Frequence - Inverse Document Frequency]] scheme
+			- $N$ - total num of docs
+			- $df_i$ total number of docs that $t_i$ appears
+			- $tf_{ij}=\frac{f_{ij}}{max(f_{1j},f_{2j},...,f_{|V|j})}$
+			- $idf_i = log(\frac{N}{df_i})$
+			- $w_{ij} = tf_{ij}*idf_i$
+			- If we use SVM for the project, we should use this to represent each word.
+		- Retrieval in vector space model:
+			- Query $q$ is represented similarly or slightly differently
+			- Compare the similarity of query $q$ to $d_i$
+			- We usually use the cosine similarity (cosine of the angle between the 2 vectors)
+			- Cosine similarity often used in text clustering
+			  ![[Pasted image 20260318103754.png]]
+	- 

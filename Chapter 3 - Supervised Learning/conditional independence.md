@@ -1,0 +1,1 @@
+- When two events $A$ and $B$ become independent after a third event $C$ is known.

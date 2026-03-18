@@ -1,0 +1,16 @@
+- 1) 
+	- Once we find the itemset the support is fixed
+- 2) Find the score of the positive class, then the overall classification of the data set
+	- Just know the formulas dawg
+- 3) This one you just had to work out doing the ms apriori algorithm
+- 4) ROC Curve
+	- Curve has TPR on the Y axis and FPR on the X axis
+- 5) 
+	- This question we just used entropy formula
+- 6) 
+	- This question was the 
+- 7) 
+	- The count of the word times the probability
+- 8) 
+	- Literally the same thing in the slides
+	- 
