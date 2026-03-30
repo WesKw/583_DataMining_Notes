@@ -1,0 +1,13 @@
+- Social network is the study of social entities (actors) and their interactions and relationships
+- Interactions and relationships can be represented w/ a network or graph
+	- Each vertex represents an actor
+	- link - represents a relationship
+- Can study properties of structure, role, position, and prestige of each social actor
+- Web is essentially a virtual society, thus a virtual social network
+	- Page - social actor
+	- hyperlink - relationship
+- Results from social network can be adapted for use in web context
+- Centrality and prestige - closely related to hyperlink analysis and search on the Web
+	- Google uses prestige
+- [[Centrality]]
+- [[Prestige]]

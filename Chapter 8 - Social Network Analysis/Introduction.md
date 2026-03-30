@@ -1,0 +1,11 @@
+- Early search engines use content similarity, via [[Information Retrieval and Web Search]] methods (cosine, TF-IDF)
+- But content similarity was no longer sufficient
+	- Too many pages
+	- Content similarity is easily spammed
+- Researchers resorted to hyperlinks
+	- Use words found in hyperlinks
+	- 2 hyperlink-based search algorithms: PageRank and HITS
+		- Both related to social networks, exploit hyperlinks according to levels or prestige or authority
+	- PageRank powers google
+- Hyperlinks also useful for finding web communities
+- Web community - cluster of densely linked pages represented a group of people w/ a special interest

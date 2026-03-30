@@ -1,0 +1,14 @@
+- Techniques used to find out the root/stem of a word
+	- user, users, used, using
+	- engineering, engineered, engineer
+	- stem: use, engineer
+	- We have to be careful because sometimes the words don't have the same meaning despite the stems
+- Improves effectiveness of IR and text mining
+	- Improves recall
+		- This is because a lot more pages become relevant
+	- Bad for precision
+	- matching similar words
+- Reduces indexing size
+	- Combining words with same roots can reduce indexing size
+- Basic methods
+	- Remove ending

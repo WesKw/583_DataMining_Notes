@@ -50,4 +50,65 @@
 			- We usually use the cosine similarity (cosine of the angle between the 2 vectors)
 			- Cosine similarity often used in text clustering
 			  ![[Pasted image 20260318103754.png]]
-	- 
+	- Okapi relevance method
+		- Assess degree of relevance by computing a relevance score for each document to the query
+		- Okapi method and variations
+	- Relevance method is one of the techniques for improving retrieval effectiveness
+		- Steps:
+			- User identifies some relevant $D_r$ and irrelevant documents $D_{ir}$ in the initial list of retrieved docs
+			- System expands query q by extracting some additional terms from the identified relevant and irrelevant documents to produce $q_e$
+			- Performance second round of retrieval
+		- Rocchio method
+			- Not used in web search anymore
+			- Good for document search in company portals
+	- Stopwords removal
+		- Many frequently used words in English are useless in IR and text mining
+		- Called [[stop words]]
+			- the, of, on ,to
+			- typically 400 to 500
+		- Remove stop words for
+			- reducing file size, improving indexing
+	- [[Stemming]]
+	- Frequency counts + TF-IDF
+		- Term frequency: Counts the number of times a word occurred in a document
+		- Document frequency: Counts the number of documents in the collection that contains each word
+	- Evaluation: Precision and Recall
+		- Given a query:
+			- Are all documents relevant
+			- Have all the relevant documents been retrieved?
+	- Precision-recall curve
+	- Rank precision
+		- Compute precision values at some selected rank positions
+		- Used in web search evaluation
+			- Compute precisions for top 5, 10, 15, etc returned pages
+				- called Precision@5, 10, 15, ..
+		- Recall is not very meaningful in web search
+			- People don't look at very many pages
+			- only look at first 5 pages
+	- What is the most popular information retrieval model?
+		- Not binary - does not consider frequency of words
+		- Most popular is vector space model,
+		- but now it's statistical language models
+	- Web search is a huge IR system
+		- Web crawler scours web to collect pages
+		- Servers establish huge inverted indexing dbs
+		- Search engines conduct different types of vector query matching
+	- Inverted Index
+		- A data structure that attaches each term w/ a list of all documents that contain the term
+		- in retrieval it takes constant time to 
+			- find documents that contain a query term
+			- find the counts of each word in a given document
+		- Proximity is important, when we search for a set of words sometimes we need them to be next to each other, so we want to include the location of the words
+		- It's very easy to do this, we just do hashing
+		- Search using inverted index
+			- Given a query q:
+				- 1) Find each term/word in q in the inverted index
+				- 2) Merge results to find documents that contain all or some of the words / terms in q
+				- 3) Rank the resulting documents/pages using
+					- content-based ranking
+					- link-based ranking - not super popular anymore
+	- Search engines
+		- Differences are
+			- Index weighting schemes
+			- query processing methods
+			- ranking algorithms

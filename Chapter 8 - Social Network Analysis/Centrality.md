@@ -1,0 +1,24 @@
+- Important or prominent actors are those that are linked w/ other actors extensively
+- Degree of centrality in a graph
+- How many do you talk to?
+- We can also normalize this
+- Undirected graph
+	- Simply the degree of the node
+- Directed
+	- distinguish in-links and out-links
+	- centrality is defined based on only the out-degree.
+- Closeness Centrality
+	- Based on closeness or distance
+	- shortest distance to compute the measure of closeness
+	- Any link has a cost of 1
+	- Undirected and directed use the same closeness centrality equation$$
+	  C_C(i) = \frac{n-1}{\sum_{j=1}^{n}d(i,j)}$$
+- Betweenness centrality
+	- If two non-adjacent actors $j, k$ want to interact, and $i$ is between $j,k$, then $i$ has some control over interactions between $j,k$.
+	- **Betweenness** - the control of $i$ over other pairs of actors
+	- Undirected graph
+	- let $p_{jk}$ be the number of shortest paths between actor $j$ and actor $k$. $$\sum_{j<k}\frac{p_{jk}(i)}{p_{jk}}$$
+	- We can normalize it with $(n-1)(n-2)/2$
+	- Betweenness can be computed even if the graph is not connected
+	- Directed graph:
+		- Can use the same equation but must be multiplied by 2, need to consider paths from both directions.
