@@ -11,3 +11,5 @@
 	- Google uses prestige
 - [[Centrality]]
 - [[Prestige]]
+- What is more important, Centrality or Prestige?
+	- Prestige is used more often and it is more important, however co-citations are kinda similar to centrality

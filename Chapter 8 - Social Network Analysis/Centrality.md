@@ -13,7 +13,7 @@
 	- Any link has a cost of 1
 	- Undirected and directed use the same closeness centrality equation$$
 	  C_C(i) = \frac{n-1}{\sum_{j=1}^{n}d(i,j)}$$
-- Betweenness centrality
+- **Betweenness** centrality
 	- If two non-adjacent actors $j, k$ want to interact, and $i$ is between $j,k$, then $i$ has some control over interactions between $j,k$.
 	- **Betweenness** - the control of $i$ over other pairs of actors
 	- Undirected graph

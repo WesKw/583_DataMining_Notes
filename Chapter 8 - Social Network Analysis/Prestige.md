@@ -1,0 +1,29 @@
+- A more refined measure of prominence of an actor than [[Centrality]].
+- Distinguishes in-links and out-links
+- Focuses on **in-links**.
+- Prestigious actor - one who is object of extensive ties as a recipient
+- Difference b/w centrality and prestige:
+	- Prestige - focus on in-links
+	- Centrality - focus on out-links
+- 3 prestige measures
+	- Rank prestige forms most web page link analysis
+- Degree of prestige$$P_d(i)=\frac{d_I(i)}{n-1}$$
+	- Basically the same as centrality but now we're talking about in-links
+	- $d_I(i)$ is the in-degree of $i$ (number of in-links of actor $i_I$)
+	- $n-1$ standardizes prestige value from 0 to 1
+- **[[Proximity Prestige]]**
+	- Degree only considers actors adjacent to $i$
+	- Generalizes proximity by considering direct and indirect links to $i$
+	- Formula: $P_p(i)$
+- **[[Rank Prestige]]**
+	- Considers "prominence" of individual actors who do the voting
+	- Votes by those who are also important have more weight
+	- High circle of influence w/ prestigious actors -> ones own prestige is also high
+	- aka: Prestige affects other prestiges
+	- How do we compute this?
+	- $P_R(i) = A_{1i}P_R(1) + A_{2i}P_R(2) + ... + A_{ni}P_R(n)$
+	- So $P=A^TP$
+	- Find the eigensystem of matrix $A^T$, $P$ is an eigenvector of $A^T$
+	- However this problem is not solvable. How do we make it solvable?
+		- Oh god Markov chains
+		- We will come back to this and solve it with Markov chains

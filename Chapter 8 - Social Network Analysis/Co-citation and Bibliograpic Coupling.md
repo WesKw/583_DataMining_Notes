@@ -1,0 +1,5 @@
+- Studied in library science
+- Citation analysis
+	- Compare and acknowledge origins of some ideas and compare new proposals with existing works
+	- Relationships are established b/w publications when a paper cites another paper
+- 2 types of citation analysis: [[co-citation]] and [[bibliographic coupling]]
