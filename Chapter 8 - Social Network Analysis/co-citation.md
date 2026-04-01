@@ -1,0 +1,5 @@
+- If papers $i, j$ are both cited by paper $k$, then they may be related in some sense to one another
+- The more papers they are cited by, the stronger their relationship is.
+- Let $L$ be the citation matrix (adjacency matrix)
+	- $L_{ij} = 1$ if paper $i$ cites $j$, 0 otherwise
+- Co-citation: a similarity measure defined as the num of papers that co-cite $i$ and $j$$$C_{ij}=\sum_{k=1}^{n}{L_{ki}L_{kj}}$$
