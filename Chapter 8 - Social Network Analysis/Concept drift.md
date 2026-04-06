@@ -1,0 +1,6 @@
+ - The original page may be good, but remember that we consider both out and in links - we have no idea what each of those added pages are for
+ - Many pages in the expanded set $S$ may not be on topic 
+ - How do we solve concept drift?
+	 - 1) we can build a classifier - but this is way slower and not feasible
+	 - 2) Can do a comparison of the similarity of pages
+	 - We can't really solve it though....

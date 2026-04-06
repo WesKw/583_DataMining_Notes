@@ -19,7 +19,7 @@
 		- Full document queries
 		- Natural languages questions
 	- ## Information retrieval models
-		- IR models fovern how a document and query are represented, and how the relevance of a document to a user query is defined
+		- IR models govern how a document and query are represented, and how the relevance of a document to a user query is defined
 		- Main models:
 			- Boolean model
 			- Vector space model

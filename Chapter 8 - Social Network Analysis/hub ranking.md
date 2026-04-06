@@ -1,0 +1,3 @@
+- A page with many out-links
+- Page serves as an organizer of the information on a topic
+- Points to many good authority pages on the topic![[Pasted image 20260406102049.png]]

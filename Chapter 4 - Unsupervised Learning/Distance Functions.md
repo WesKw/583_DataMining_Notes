@@ -12,12 +12,12 @@
 	- [[Binary attribute]]: 2 values or states but no ordering relationships
 		- ex: gender
 	- We can use a [[confusion matrix]] to introduce the distance functions / measures
-- ## Asymmetric bunary attributes
+- ## Asymmetric binary attributes
 	- If one of the states is more important or valuable than the other
 - ## Nominal attributes
 	- With more than 2 states or values
 	- Common distance measure: **simple matching method**
 - ## Distance function for text documents
-	- Don't normally use this, sometimes we use jacard distance
+	- Don't normally use this, sometimes we use Jaccard distance
 	- Most of the time we use [[cosine similarity]]
 	- Document can be represented w/ a vector just like a normal data point
