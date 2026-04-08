@@ -1,0 +1,2 @@
+- Sentiment / opinion expressions on some target entities
+- Direct and Indirect opinions

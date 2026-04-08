@@ -1,0 +1,2 @@
+- Comparison of more than 1 entity
+- "X is better than Y"

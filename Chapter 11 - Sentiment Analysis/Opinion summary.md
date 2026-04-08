@@ -1,0 +1,9 @@
+- (OS)
+- Summary is usually necessary with a lot of opinions
+- Not traditional text summary from long to short
+- Can be defined precisely
+	- not dependent on how the summary is generated
+	- N
+- Needs to be quantitative
+	- 60% positive is very different from 90%
+- Main form of OS: Aspect-based sentiment analysis

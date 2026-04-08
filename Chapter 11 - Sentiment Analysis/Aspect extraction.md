@@ -1,0 +1,45 @@
+- Goal: given an opinion corpus, extract all aspects
+- Approaches:
+	- 1) Finding frequent nouns and noun phrases
+	- Exploiting opinion and target relations
+	- [[3.1 - Supervised Learning Basic Concepts]] (Supervised learning)
+	- Topic modeling
+- ## Frequent nouns and noun phrases
+	- Nouns that are frequently mentioned are likely to be true aspects (frequent aspects)
+	- Is the [[precision]] bad or the [[recall]] bad?
+		- The recall is bad - often the nouns don't have anything to do with the target
+		- Precision was okay... but still had a problem - lots of noun phrases are not correct
+- ## Using Part-of Relationship & the Web
+	- Improved by removing some frequent noun phrases that might not be aspects
+	- identifies **part-of** relationship
+		- Each phrase is given mutual information score (PMI) between phrase & part discriminators associated w/ the product class
+- ## Exploiting opinion & target relation
+	- Key idea: Opinions have targets - opinion terms are used to modify aspects & entities
+	- Approximated w/ the nearest noun phrases to the opinion word
+	- Generalized to syntactic dependency and [[Double Propagation]]
+- ## Explicit and Implicit Aspects
+	- Explicit aspects - Aspects explicitly mentioned as nouns or noun phrases in a sentence
+	- Implicit aspects - Aspects not explicitly mentioned in a sentence but are implied
+		- "This car is so expensive"
+		- "This phone will not easily fit in a pocket"
+	- This problem has not been solved it's very difficult
+- ## Using [[Supervised]] learning
+	- Hidden Markov models
+	- Conditional random fields
+	- Large number of deep learning-based approaches
+- ## Topic Modeling
+	- Aspect extraction has two tasks:
+		- 1) Extract aspect expressions
+		- 2) Cluster them (same: "picture", "photo", "image")
+	- Good models perform both tasks at the same time
+		- A topic is an aspect
+		- **Document** is a distribution over topics
+		- **Topic** is a distribution over terms / words
+			- Ranked based on probabilities
+			- **"I don't have time to explain it but you have to understand what it's doing"**
+		- Will be in the next quiz
+		- Used practically
+- ## Many Related Models and Papers
+	- Use topic models to model aspects
+	- Jointly model both aspects and sentiments
+	- Knowledge-based modeling - often unsupervised models are insuffiicient
