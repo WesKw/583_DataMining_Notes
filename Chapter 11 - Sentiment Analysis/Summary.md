@@ -1,0 +1,5 @@
+- [[11.1 - What is Sentiment Analysis]]
+- NLP / text mining problem
+- Applications are flourishing but it's challenging
+- AI needs a self-regulatory system
+	- emotion/mood/personality

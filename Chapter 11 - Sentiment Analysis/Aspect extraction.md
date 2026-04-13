@@ -33,13 +33,15 @@
 		- 2) Cluster them (same: "picture", "photo", "image")
 	- Good models perform both tasks at the same time
 		- A topic is an aspect
-		- **Document** is a distribution over topics
+		- **Document** is a distribution over **topics**
 		- **Topic** is a distribution over terms / words
 			- Ranked based on probabilities
 			- **"I don't have time to explain it but you have to understand what it's doing"**
+			- Eg price, cost, cheap, expensive
+				- Ranked based on probabilities
 		- Will be in the next quiz
 		- Used practically
 - ## Many Related Models and Papers
 	- Use topic models to model aspects
 	- Jointly model both aspects and sentiments
-	- Knowledge-based modeling - often unsupervised models are insuffiicient
+	- Knowledge-based modeling - often unsupervised models are insufficient
