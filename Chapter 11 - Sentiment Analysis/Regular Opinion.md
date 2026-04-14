@@ -1,2 +1,6 @@
 - Sentiment / opinion expressions on some target entities
 - Direct and Indirect opinions
+	- Direct: "The touch screen is really cool"
+		- Touch screen is the target
+	- Indirect: "After taking the drug, my pain has gone"
+		- Drug is the target

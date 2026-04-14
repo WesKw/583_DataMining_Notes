@@ -1,0 +1,12 @@
+- Based on the definition of opinion, an opinion should have a target, entity, or aspect
+- dependency of opinions and aspects to extract both aspects and opinion words 
+	- Knowing one helps find the other
+	- Ex: "The rooms are spacious"
+- Extracts aspects and opinion words
+	- domain independent
+- Bootstrapping method
+	- Input: set of seed opinion words
+	- no aspect seeds
+	- Based on dependency grammar
+		- "This phone has good screen"![[Pasted image 20260414132343.png]]
+	- We have rules from dependency grammar

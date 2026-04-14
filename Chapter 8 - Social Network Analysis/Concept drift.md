@@ -2,5 +2,5 @@
  - Many pages in the expanded set $S$ may not be on topic 
  - How do we solve concept drift?
 	 - 1) we can build a classifier - but this is way slower and not feasible
-	 - 2) Can do a comparison of the similarity of pages
+	 - 2) Can do a comparison of the similarity of pages;
 	 - We can't really solve it though....
