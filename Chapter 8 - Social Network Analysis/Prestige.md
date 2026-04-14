@@ -1,4 +1,4 @@
-- A more refined measure of prominence of an actor than [[Centrality]].
+- A more refined measure of prominence of an actor than [[7.1.1 - Centrality]].
 - Distinguishes in-links and out-links
 - Focuses on **in-links**.
 - Prestigious actor - one who is object of extensive ties as a recipient
