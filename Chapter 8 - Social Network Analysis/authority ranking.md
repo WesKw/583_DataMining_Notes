@@ -1,2 +1,0 @@
-- Roughly - a page with many in-links
-	- A page may have good or authoritative content on a topic, thus many people trust it and link to it![[Pasted image 20260406102034.png]]
