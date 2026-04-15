@@ -1,0 +1,35 @@
+- Started around 1996
+- Recommender systems are widely used for recommending products and services to users
+- Think e-commerce websites
+- 2 functions
+	- Help users deal with information overload
+	- Help make businesses more profitable (we love contributing to the capitalist hellscape)
+- ### Ex: Movie recommendation
+	- Most common scenario
+		- A set of users has initially rated some subset of movies that they have seen
+		- Ratings are the input, system uses the known ratings to predict ratings each user would give to those movies not rated by the user
+		- Recommendations of movies are made to each user based on the predicted ratings
+- Different variations
+	- Some ratings have additional attributes (adding more features)
+		- About each user (age, gender, income, etc)
+		- About each movie (title, genre, etc)
+- ## The recommendation problem
+	- We have a set of users $U$ and a set of items $S$ to be recommended to the users
+	- Let $p$ be a utility function that measures the usefulness of item $s\in S$ to user $u\in U$
+		- $p:U\times S\implies R$ where $R$ is a totally ordered set (non-neg integers or real numbers in a range)
+	- Objective:
+		- Learn $p$ based on past data
+		- Use $p$ to predict the utility value of each item $s$ to each user $u$
+	- ### As Prediction
+		- Rating prediction -> predict the rating score that a user is likely to give an item they have not seen before
+		- ...
+	- ### 2 approaches
+		- *[[B.2 - Content-Based Recommendation]]*:
+			- User is recommended items similar to the ones the user preferred in the past
+			- ___Problem___ with this approach: There is ___less exploration___ for the user - user always looks at the same things that they've seen before
+				- Bad for the user and the merchant
+		- [[B.3 - Collaborative Filtering]] / Recommendation
+			- User is recommended items that people w/ similar tastes and preferences have liked in the past
+			- Gives user a chance to explore new things
+		- __Hybrid__ systems combine both approaches for gooooood stuff
+		- We currently have both types of recommendation systems. However, _Collaborative filtering_ is ___dominant___.

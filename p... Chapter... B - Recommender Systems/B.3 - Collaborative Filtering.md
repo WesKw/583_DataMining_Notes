@@ -1,0 +1,46 @@
+- CF
+- Dominant recommendation algorithm
+- The most studied and widely used approach
+	- k-nearest neighbor
+	- association rules based prediction
+	- matrix factorization
+- # k-nearest neighbor
+	- [[3.9 - K Nearest Neighbor]] (kNN, memory-based approach) uses entire user-item database to generate predictions directly
+	- Remember, kNN does not build a model!
+	- Approach includes user-based and item-based methods
+	- Rating patterns may be very similar but might have nothing to do with each other
+	- ## User-based kNN CF
+		- 2 primary phases:
+			- 1) neighborhood formation phase
+			- 2) Recommendation phase
+			- Many methods for both phases.
+		- ### Neighborhood formation phase
+			- Let the record / profile of target user be $u$ and the record of another user be $v$
+			- Similarity between $u$ and $v$ can be calculated using the _Pearson's correlation coefficient_$$sim(u,v)=\frac{ \sum_{i\in C}{(r_{u,i})} }{ \sqrt{\sum_{}^{}{} }}$$
+				- __Compares the similarity of rating patterns, ***not*** the similarity of movies__
+				- $C$ is the set of items co-rated by $u$ and $v$
+		- ### Recommendation Phase
+			- Use the following formula to compute the rating prediction of item $i$ for target $u$$$p(u,i)=r_u+\frac{}{}$$
+				- Sum the similarities and then we normalize it...
+				- Where $V$ is the set of $k$ similar users, $r_{v,i}$ is the rating of user $v$ to given item $i$
+				- Done after a purchase
+		- ### Issues with user-based kNN CF
+			- **Scalability**
+				- real-time comparison of target user to all user records
+					- Amazon has billions of users
+			- A variation of this approach is called item-based CF
+	- ## Item-Based CF
+		- Works by comparing items based on their pattern of rating across users
+		- This is another formula for formation phase:$$helpme$$
+		- Recommendation phase is very similar to the user-based
+		- Formula for predicted value:$$RUN$$
+- # Association Rules
+	- [[Association Rule Mining]] can obviously be used for recommendation.
+	- Consider a movie rating a "transaction"
+	- find item association rules
+	- Support is useful, but the confidence is the most useful
+	- In practice we don't usually have multiple consequents in the rule.
+	- Problem: We cannot use a single minimum support, we need MS
+	- Problem: How do we evaluate this?
+		- We can put it into operational practice
+- # Matrix Factorization

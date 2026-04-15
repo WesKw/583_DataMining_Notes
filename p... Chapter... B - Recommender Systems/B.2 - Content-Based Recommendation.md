@@ -1,0 +1,7 @@
+- Perform item recommendations by predicting the utility of items for a particular user based on how similar the items are to those they have looked at previously
+- We can do this automatically or manually
+	- Ex: movies may be represented by certain attributes or features (title, director, genre)
+	- Users have profiles that also are used 
+- Recommendations made by comparing the user profile w/ candidate items expressed in the same set of features
+- Top-k best matched or most similar items are used
+- Computation of similarity w/ user profile is the easiest approach
