@@ -1,0 +1,8 @@
+- Learn a sequence of tasks $T_1, T_2, ... T_n$ incrementally
+- Each task has training dataset $D_T$
+- Goal: learn each new task $T_{n+1}$ incrementally
+	- 1) without __catastrophic forgetting (CF)__ - Learning of the new task should not result in accuracy degradation for any previous $N$ tasks
+	- 2) with __knowledge transfer (KT)__ - leveraging knowledge from previous tasks to learn the new task better
+- Assumption: Once a task is learned its data is not longer accessible, at least a majority of it
+	- New task and its training data are given by the user.
+- In supervised ML, a task is a set of classes to learn
