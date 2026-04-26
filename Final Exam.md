@@ -1,0 +1,4 @@
+- May 5th, 10:30 - 12:30, same room
+- Sample paper review questions posted in blackboard
+- Still have a quiz next Monday, covers recommendation systems + autonomous agents
+- Thursday Apr 30th is demo day for research project

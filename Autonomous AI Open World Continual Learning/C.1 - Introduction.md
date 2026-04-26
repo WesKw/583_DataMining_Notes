@@ -14,13 +14,19 @@
 - ## Novelty Detection & Continual Learning
 	- Traditional ML makes close world-assumption
 		- (test classes) $Y^{test}$ $\subset$ $Y^{train}$ (training classes)
+	- *Open World* - with unknowns or novelties
+		- ___A system unable to detect new things cannot learn by itself___
+	- Autonomy involves connecting *novelty detection* and *continual/life-long learning*
+	- **Self-initiated Open-world continual Learning and Adaptation** (SOLA) connects both
 ## Autonomous Learning Agent
 - World is full of *unknowns*
 - Need to learn on the job & be autonomous
 	- continuous self-motivated and self-supervised manner to improve over time
-- Self-motivation: detect novel or unknown objects to learn
-- Self-supervision: collect ground-truth training data by agent itself via
+- *Self-motivation*: detect novel or unknown objects to learn
+	- Novelties are intrinsic motivations for human learning
+- *Self-supervision*: collect ground-truth training data by agent itself via
 	- Interaction or communication w/ other humans or agents
+	- Perception, internal evaluation, environmental feedback
 - ### Ex: Self-driving cars need to learn continuously
 	- Cannot reach human-level driving with only rules and offline training
 	- Too many edge cases! World is mysterious
